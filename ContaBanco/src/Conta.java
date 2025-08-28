@@ -1,41 +1,35 @@
-public class Conta {
-    private int numero;
-    private String agencia;
-    private String nomeCliente;
-    private double saldo;
 
-    public Conta(int numero, String agencia, String nomeCliente, double saldo) {
-        this.numero = numero;
-        this.agencia = agencia;
-        this.nomeCliente = nomeCliente;
-        this.saldo = saldo;
+
+import java.util.Scanner;
+
+public class ContaTerminal {
+    public static void main(String[] args) {
+        Scanner scanner = new Scanner(System.in);
+
+        Conta conta = criarConta(scanner);
+
+        System.out.println("\n=======================================");
+        System.out.println(conta.getMensagemBoasVindas());
+        System.out.println("=======================================");
+
+        scanner.close();
     }
 
-   
-    public String getMensagemBoasVindas() {
-        return String.format(
-                "Olá %s, obrigado por criar uma conta em nosso banco. " +
-                        "Sua agência é %s, conta %d e seu saldo de R$ %.2f já está disponível para saque.",
-                nomeCliente, agencia, numero, saldo
-        );
-    }
+    private static Conta criarConta(Scanner scanner) {
+        System.out.print("Por favor, insira o número da Conta: ");
+        int numero = scanner.nextInt();
 
-    
-    @Override
-    public String toString() {
-        return String.format("Conta[numero=%d, agencia=%s, cliente=%s, saldo=%.2f]",
-                numero, agencia, nomeCliente, saldo);
-    }
+        scanner.nextLine();
 
-    public int getNumero() {
-        return numero;
-    }
+        System.out.print("Por favor, insira o número da Agência: ");
+        String agencia = scanner.nextLine();
 
-    public String getAgencia() {
-        return agencia;
-    }
+        System.out.print("Por favor, insira o nome do Cliente: ");
+        String nomeCliente = scanner.nextLine();
 
-    public String getNomeCliente() {
-        return nomeCliente;
+        System.out.print("Por favor, insira o saldo da Conta: ");
+        double saldo = scanner.nextDouble();
+
+        return new Conta(numero, agencia, nomeCliente, saldo);
     }
 }
