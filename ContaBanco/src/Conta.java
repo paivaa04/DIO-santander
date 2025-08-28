@@ -11,7 +11,7 @@ public class Conta {
         this.saldo = saldo;
     }
 
-    // Método que retorna a mensagem final formatada
+   
     public String getMensagemBoasVindas() {
         return String.format(
                 "Olá %s, obrigado por criar uma conta em nosso banco. " +
@@ -20,14 +20,13 @@ public class Conta {
         );
     }
 
-    // Opcional: sobrescrevendo toString para facilitar debug/logs
+    
     @Override
     public String toString() {
         return String.format("Conta[numero=%d, agencia=%s, cliente=%s, saldo=%.2f]",
                 numero, agencia, nomeCliente, saldo);
     }
 
-    // Getters (caso queira expandir o sistema depois)
     public int getNumero() {
         return numero;
     }
