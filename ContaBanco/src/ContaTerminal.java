@@ -19,7 +19,7 @@ public class ContaTerminal {
         System.out.print("Por favor, insira o número da Conta: ");
         int numero = scanner.nextInt();
 
-        scanner.nextLine(); // limpar o buffer
+        scanner.nextLine();
 
         System.out.print("Por favor, insira o número da Agência: ");
         String agencia = scanner.nextLine();
@@ -33,3 +33,4 @@ public class ContaTerminal {
         return new Conta(numero, agencia, nomeCliente, saldo);
     }
 }
+
